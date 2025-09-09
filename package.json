@@ -1,0 +1,73 @@
+{
+  "name": "react-loan-calculator",
+  "private": false,
+  "version": "0.0.1",
+  "type": "module",
+  "description": "A React/TypeScript web component for calculating loan payments",
+  "main": "dist/loan-calculator.umd.js",
+  "module": "dist/loan-calculator.es.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/loan-calculator.es.js",
+      "require": "./dist/loan-calculator.umd.js"
+    },
+    "./dist/style.css": "./dist/style.css"
+  },
+  "keywords": [
+    "react",
+    "typescript",
+    "web-component",
+    "loan-calculator",
+    "financial",
+    "calculator"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/loan-calculator.git"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "build:types": "tsc --declaration --emitDeclarationOnly --outDir dist",
+    "lint": "eslint .",
+    "preview": "vite preview",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "prepublishOnly": "npm run build"
+  },
+  "dependencies": {
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.33.0",
+    "@tailwindcss/vite": "^4.1.13",
+    "@testing-library/jest-dom": "^6.8.0",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^14.6.1",
+    "@types/jest": "^30.0.0",
+    "@types/react": "^19.1.10",
+    "@types/react-dom": "^19.1.7",
+    "@vitejs/plugin-react": "^5.0.0",
+    "daisyui": "^5.1.9",
+    "eslint": "^9.33.0",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.20",
+    "globals": "^16.3.0",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^30.1.3",
+    "jest-environment-jsdom": "^30.1.2",
+    "tailwindcss": "^4.1.13",
+    "ts-jest": "^29.4.1",
+    "typescript": "~5.8.3",
+    "typescript-eslint": "^8.39.1",
+    "vite": "^7.1.2"
+  }
+}
