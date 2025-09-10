@@ -40,7 +40,11 @@
     "preview": "vite preview",
     "test": "jest",
     "test:watch": "jest --watch",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run build",
+    "changelog:update": "node scripts/update-changelog.js",
+    "changelog:generate": "conventional-changelog -p conventionalcommits -i CHANGELOG.md -s",
+    "version": "npm run changelog:update && git add CHANGELOG.md",
+    "preversion": "./scripts/preversion.sh"
   },
   "dependencies": {
     "react": "^19.1.1",
@@ -56,6 +60,8 @@
     "@types/react": "^19.1.10",
     "@types/react-dom": "^19.1.7",
     "@vitejs/plugin-react": "^5.0.0",
+    "conventional-changelog-cli": "^5.0.0",
+    "conventional-changelog-conventionalcommits": "^9.1.0",
     "daisyui": "^5.1.9",
     "eslint": "^9.33.0",
     "eslint-plugin-react-hooks": "^5.2.0",

@@ -1,0 +1,51 @@
+{
+  "types": [
+    {
+      "type": "feat",
+      "section": "✨ Features"
+    },
+    {
+      "type": "fix",
+      "section": "🐛 Bug Fixes"
+    },
+    {
+      "type": "perf",
+      "section": "⚡ Performance Improvements"
+    },
+    {
+      "type": "refactor",
+      "section": "🔨 Code Refactoring"
+    },
+    {
+      "type": "docs",
+      "section": "📚 Documentation"
+    },
+    {
+      "type": "test",
+      "section": "🧪 Tests"
+    },
+    {
+      "type": "build",
+      "section": "🔧 Build System"
+    },
+    {
+      "type": "ci",
+      "section": "🔧 Continuous Integration"
+    },
+    {
+      "type": "style",
+      "section": "🧹 Code Style"
+    },
+    {
+      "type": "chore",
+      "section": "🧹 Maintenance"
+    }
+  ],
+  "preMajor": false,
+  "commitUrlFormat": "https://github.com/e23thr-open-source/react-loan-calculator/commit/{{hash}}",
+  "compareUrlFormat": "https://github.com/e23thr-open-source/react-loan-calculator/compare/{{previousTag}}...{{currentTag}}",
+  "issueUrlFormat": "https://github.com/e23thr-open-source/react-loan-calculator/issues/{{id}}",
+  "userUrlFormat": "https://github.com/{{user}}",
+  "releaseCommitMessageFormat": "chore(release): {{currentTag}}",
+  "issuePrefixes": ["#"]
+}
