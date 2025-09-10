@@ -4,7 +4,7 @@ A modern, responsive loan calculator built with React 19, TypeScript, and Tailwi
 
 ![Version](https://img.shields.io/npm/v/@e23thr-dev/loan-calculator)
 ![License](https://img.shields.io/npm/l/@e23thr-dev/loan-calculator)
-![Build Status](https://img.shields.io/github/workflow/status/e23thr-open-source/react-loan-calculator/CI)
+![Build Status](https://img.shields.io/github/actions/workflow/status/e23thr-open-source/react-loan-calculator/ci.yml?branch=main)
 
 ## Features
 
@@ -19,7 +19,7 @@ A modern, responsive loan calculator built with React 19, TypeScript, and Tailwi
 
 ## Demo
 
-View the live demo: [https://e23thr-open-source.github.io/react-loan-calculator](https://e23thr-open-source.github.io/react-loan-calculator)
+View the live demo: [https://codepen.io/e23thr/pen/MYaRXQL](https://codepen.io/e23thr/pen/MYaRXQL)
 
 ## Installation
 
