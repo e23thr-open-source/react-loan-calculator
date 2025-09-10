@@ -1,7 +1,7 @@
 {
   "name": "@e23thr-dev/loan-calculator",
   "private": false,
-  "version": "0.0.1",
+  "version": "0.0.2",
   "type": "module",
   "description": "A React/TypeScript web component for calculating loan payments",
   "main": "dist/loan-calculator.umd.js",
