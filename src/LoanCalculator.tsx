@@ -99,7 +99,7 @@ const LoanCalculator: React.FC<LoanCalculatorProps> = ({
   }, [eventName]);
 
   useEffect(() => {
-    console.log("eventNameState changed", eventNameState);
+    // console.log("eventNameState changed", eventNameState);
   }, [eventNameState]);
 
   return (
