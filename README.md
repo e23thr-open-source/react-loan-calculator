@@ -98,6 +98,8 @@ function App() {
 | `initialLoanTerm` | `number` | `30` | Initial loan term in years |
 | `theme` | `'light' \| 'dark'` | `'light'` | Theme for the calculator |
 | `className` | `string` | `''` | Additional CSS classes |
+| `eventName` | `string` | `loan-calculation-event"` | Event name for custom events |
+
 
 ### Web Component Attributes
 
@@ -108,6 +110,7 @@ function App() {
 | `loan-term` | `string` | `"30"` | Initial loan term in years |
 | `theme` | `string` | `"light"` | Theme (light/dark) |
 | `class` | `string` | `""` | Additional CSS classes |
+| `event-name` | `string` | `loan-calculation-event"` | Event name for custom events |
 
 ### Calculation Results
 
