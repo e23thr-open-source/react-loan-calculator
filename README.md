@@ -153,21 +153,48 @@ The component uses Tailwind CSS with DaisyUI for styling. You can customize the 
 
 See [DEVELOPMENT.md](DEVELOPMENT.md) for development setup and contribution guidelines.
 
+### Automated Changelog
+
+This project uses automated changelog generation based on [Conventional Commits](https://conventionalcommits.org/).
+
+**Quick start:**
+```bash
+npm run changelog:demo  # Interactive demo
+npm run changelog:update  # Manual update
+```
+
+**Commit format:**
+```bash
+feat: add new feature
+fix: resolve bug issue
+docs: update documentation
+```
+
+**Version workflow:**
+```bash
+npm version patch  # Auto-updates changelog
+git push origin main --tags  # Triggers release
+```
+
+See [docs/CHANGELOG_AUTOMATION.md](docs/CHANGELOG_AUTOMATION.md) for full details.
+
 ## License
 
 MIT © [Your Name](https://github.com/yourusername)
 
 ## Changelog
 
-See [CHANGELOG.md](CHANGELOG.md) for version history.
+See [CHANGELOG.md](CHANGELOG.md) for version history and automated release notes.
 
 ## Contributing
 
 1. Fork the repository
 2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
+3. Commit your changes using [conventional commits](https://conventionalcommits.org/) (`git commit -m 'feat: add amazing feature'`)
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
+
+**Note:** Please use conventional commit messages to ensure proper changelog generation.
 
 ## Support
 - 📖 [Documentation](https://e23thr-open-source.github.io/react-loan-calculator)

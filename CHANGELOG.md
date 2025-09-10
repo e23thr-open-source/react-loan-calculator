@@ -7,6 +7,40 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.0.3] - 2025-09-10
+### ✨ Features
+
+- add automated changelog generation system (8dfaa08)
+
+### 🐛 Bug Fixes
+
+- change config (1deee24)
+
+### 📚 Documentation
+
+- clean up changelog duplicates and fix links (0cc962f)
+
+### Other Changes
+
+- update license (afb1493)
+
+## [0.0.2] - 2025-09-10
+### ✨ Features
+
+- add automated changelog generation system (8dfaa08)
+
+### 🐛 Bug Fixes
+
+- change config (1deee24)
+
+### 📚 Documentation
+
+- clean up changelog duplicates and fix links (0cc962f)
+
+### Other Changes
+
+- update license (afb1493)
+
 ## [0.0.2] - 2025-09-10
 
 ### ✨ Features
@@ -57,6 +91,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - GitHub Actions for CI/CD
 - Comprehensive documentation
 
-[Unreleased]: https://github.com/e23thr-open-source/react-loan-calculator/compare/v0.0.2...HEAD
+[Unreleased]: https://github.com/e23thr-open-source/react-loan-calculator/compare/v0.0.3...HEAD
 [0.0.2]: https://github.com/e23thr-open-source/react-loan-calculator/releases/tag/v0.0.2
 [1.0.0]: https://github.com/e23thr-open-source/react-loan-calculator/releases/tag/v1.0.0
+[0.0.2]: https://github.com/e23thr-open-source/react-loan-calculator/releases/tag/v0.0.2
+[0.0.3]: https://github.com/e23thr-open-source/react-loan-calculator/releases/tag/v0.0.3

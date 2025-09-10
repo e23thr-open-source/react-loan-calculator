@@ -1,7 +1,7 @@
 {
   "name": "@e23thr-dev/loan-calculator",
   "private": false,
-  "version": "0.0.2",
+  "version": "0.0.3",
   "type": "module",
   "description": "A React/TypeScript web component for calculating loan payments",
   "main": "dist/loan-calculator.umd.js",
@@ -43,6 +43,7 @@
     "prepublishOnly": "npm run build",
     "changelog:update": "node scripts/update-changelog.js",
     "changelog:generate": "conventional-changelog -p conventionalcommits -i CHANGELOG.md -s",
+    "changelog:demo": "./scripts/changelog-demo.sh",
     "version": "npm run changelog:update && git add CHANGELOG.md",
     "preversion": "./scripts/preversion.sh"
   },
