@@ -2,9 +2,9 @@
 
 A modern, responsive loan calculator built with React 19, TypeScript, and Tailwind CSS. Available as both a React component and a standalone web component for easy integration into any web application.
 
-![Version](https://img.shields.io/npm/v/react-loan-calculator)
-![License](https://img.shields.io/npm/l/react-loan-calculator)
-![Build Status](https://img.shields.io/github/workflow/status/e23thr/react-loan-calculator/CI)
+![Version](https://img.shields.io/npm/v/@e23thr-dev/loan-calculator)
+![License](https://img.shields.io/npm/l/@e23thr-dev/loan-calculator)
+![Build Status](https://img.shields.io/github/workflow/status/e23thr-open-source/react-loan-calculator/CI)
 
 ## Features
 
@@ -19,24 +19,24 @@ A modern, responsive loan calculator built with React 19, TypeScript, and Tailwi
 
 ## Demo
 
-View the live demo: [https://yourusername.github.io/loan-calculator](https://yourusername.github.io/loan-calculator)
+View the live demo: [https://e23thr-open-source.github.io/react-loan-calculator](https://e23thr-open-source.github.io/react-loan-calculator)
 
 ## Installation
 
 ### Via npm
 
 ```bash
-npm install loan-calculator
+npm install @e23thr-dev/loan-calculator
 ```
 
 ### Via CDN
 
 ```html
 <!-- CSS -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/loan-calculator@latest/dist/loan-calculator.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@e23thr-dev/loan-calculator@latest/dist/loan-calculator.css">
 
 <!-- JavaScript -->
-<script src="https://cdn.jsdelivr.net/npm/loan-calculator@latest/dist/loan-calculator.umd.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@e23thr-dev/loan-calculator@latest/dist/loan-calculator.umd.js"></script>
 ```
 
 ## Usage
@@ -45,8 +45,8 @@ npm install loan-calculator
 
 ```tsx
 import React from 'react';
-import { LoanCalculator } from 'loan-calculator';
-import 'loan-calculator/dist/loan-calculator.css';
+import { LoanCalculator } from '@e23thr-dev/loan-calculator';
+import '@e23thr-dev/loan-calculator/dist/loan-calculator.css';
 
 function App() {
   return (
@@ -71,7 +71,7 @@ function App() {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Loan Calculator</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/loan-calculator@latest/dist/loan-calculator.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@e23thr-dev/loan-calculator@latest/dist/loan-calculator.css">
 </head>
 <body>
   <!-- Web Component -->
@@ -82,7 +82,7 @@ function App() {
     theme="dark">
   </loan-calculator>
 
-  <script src="https://cdn.jsdelivr.net/npm/loan-calculator@latest/dist/loan-calculator.umd.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@e23thr-dev/loan-calculator@latest/dist/loan-calculator.umd.js"></script>
 </body>
 </html>
 ```
@@ -167,7 +167,6 @@ See [CHANGELOG.md](CHANGELOG.md) for version history.
 5. Open a Pull Request
 
 ## Support
-
-- 📖 [Documentation](https://yourusername.github.io/loan-calculator)
-- 🐛 [Issue Tracker](https://github.com/yourusername/loan-calculator/issues)
-- 💬 [Discussions](https://github.com/yourusername/loan-calculator/discussions)
+- 📖 [Documentation](https://e23thr-open-source.github.io/react-loan-calculator)
+- 🐛 [Issue Tracker](https://github.com/e23thr-open-source/react-loan-calculator/issues)
+- 💬 [Discussions](https://github.com/e23thr-open-source/react-loan-calculator/discussions)

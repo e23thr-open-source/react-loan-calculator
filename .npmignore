@@ -1,0 +1,39 @@
+# Source files
+src/
+public/
+
+# Development files
+.vite/
+node_modules/
+.git/
+.github/
+
+# Config files
+vite.config.ts
+tsconfig*.json
+eslint.config.js
+jest.config.json
+tailwind.config.js
+
+# Development docs
+DEVELOPMENT.md
+PROJECT_SETUP.md
+
+# Build artifacts (keep only dist/)
+*.log
+*.tsbuildinfo
+
+# Test files
+**/*.test.*
+**/__tests__/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Demo files
+index.html

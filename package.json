@@ -1,7 +1,7 @@
 {
-  "name": "react-loan-calculator",
+  "name": "@e23thr-dev/loan-calculator",
   "private": false,
-  "version": "0.0.1b",
+  "version": "0.0.1",
   "type": "module",
   "description": "A React/TypeScript web component for calculating loan payments",
   "main": "dist/loan-calculator.umd.js",
@@ -26,16 +26,16 @@
     "financial",
     "calculator"
   ],
-  "author": "Your Name",
+  "author": "e23thr-open-source",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/yourusername/loan-calculator.git"
+    "url": "https://github.com/e23thr-open-source/react-loan-calculator.git"
   },
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
-    "build:types": "tsc --declaration --emitDeclarationOnly --outDir dist",
+    "build": "tsc -b && vite build && npm run build:types",
+    "build:types": "tsc --project tsconfig.build.json",
     "lint": "eslint .",
     "preview": "vite preview",
     "test": "jest",
