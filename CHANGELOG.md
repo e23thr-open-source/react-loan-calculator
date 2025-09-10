@@ -8,6 +8,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ## [0.0.2] - 2025-09-10
+
+### ✨ Features
+
+- add automated changelog generation system (8dfaa08)
+
 ### 🐛 Bug Fixes
 
 - change config (1deee24)
@@ -52,7 +57,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - GitHub Actions for CI/CD
 - Comprehensive documentation
 
-[Unreleased]: https://github.com/yourusername/loan-calculator/compare/v0.0.2...HEAD
-[1.0.0]: https://github.com/yourusername/loan-calculator/releases/tag/v1.0.0
-
+[Unreleased]: https://github.com/e23thr-open-source/react-loan-calculator/compare/v0.0.2...HEAD
 [0.0.2]: https://github.com/e23thr-open-source/react-loan-calculator/releases/tag/v0.0.2
+[1.0.0]: https://github.com/e23thr-open-source/react-loan-calculator/releases/tag/v1.0.0
