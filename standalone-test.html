@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Loan Calculator - Standalone Test</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+        background-color: #1a202c;
+        color: white;
+      }
+      h1 {
+        color: #63b3ed;
+        margin-bottom: 20px;
+      }
+      .test-section {
+        margin: 20px 0;
+        padding: 20px;
+        background-color: #2d3748;
+        border-radius: 8px;
+      }
+      .test-section h2 {
+        color: #68d391;
+        margin-top: 0;
+      }
+    </style>
+    <link rel="stylesheet" href="dist/loan-calculator.css" />
+  </head>
+  <body>
+    <h1>Loan Calculator Web Component Tests</h1>
+
+    <div class="test-section">
+      <h2>Test 1: Default Values with Dark Theme</h2>
+      <loan-calculator
+        loan-amount="300000"
+        interest-rate="4.5"
+        loan-term="25"
+        theme="dark"
+      ></loan-calculator>
+    </div>
+
+    <div class="test-section">
+      <h2>Test 2: Light Theme</h2>
+      <loan-calculator
+        loan-amount="250000"
+        interest-rate="3.75"
+        loan-term="30"
+        theme="light"
+      ></loan-calculator>
+    </div>
+
+    <div class="test-section">
+      <h2>Test 3: Small Loan</h2>
+      <loan-calculator
+        loan-amount="50000"
+        interest-rate="5.2"
+        loan-term="10"
+        theme="dark"
+      ></loan-calculator>
+    </div>
+
+
+    <!-- Loan Calculator Web Component -->
+    <script src="dist/loan-calculator.umd.js"></script>
+
+    <script>
+      // Debug information
+      console.log('React version:', React.version);
+      console.log('ReactDOM available:', !!ReactDOM);
+      console.log('LoanCalculator available:', !!window.LoanCalculator);
+
+      // Test programmatic creation
+      setTimeout(() => {
+        const container = document.createElement('div');
+        container.style.marginTop = '20px';
+        container.style.padding = '20px';
+        container.style.backgroundColor = '#2d3748';
+        container.style.borderRadius = '8px';
+        container.innerHTML = '<h2 style="color: #68d391; margin-top: 0;">Test 4: Programmatically Created</h2>';
+
+        const calculator = document.createElement('loan-calculator');
+        calculator.setAttribute('loan-amount', '500000');
+        calculator.setAttribute('interest-rate', '6.0');
+        calculator.setAttribute('loan-term', '20');
+        calculator.setAttribute('theme', 'light');
+
+        container.appendChild(calculator);
+        document.body.appendChild(container);
+      }, 1000);
+    </script>
+  </body>
+</html>

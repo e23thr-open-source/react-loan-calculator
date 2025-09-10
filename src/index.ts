@@ -1,5 +1,6 @@
 import './index.css';
-import './LoanCalculatorElement';
+import LoanCalculatorElement from './LoanCalculatorElement';
+import LoanCalculator from './LoanCalculator';
 
 // Export the component for React users
 export { default as LoanCalculator } from './LoanCalculator';
@@ -14,18 +15,13 @@ console.log('Loan Calculator Web Component loaded and registered as <loan-calcul
 // For UMD builds - attach to window object
 declare global {
   interface Window {
-    LoanCalculator: typeof import('./LoanCalculator').default;
-    LoanCalculatorElement: typeof import('./LoanCalculatorElement').default;
+    LoanCalculator: typeof LoanCalculator;
+    LoanCalculatorElement: typeof LoanCalculatorElement;
   }
 }
 
 if (typeof window !== 'undefined') {
-  // Import components dynamically to avoid issues
-  import('./LoanCalculator').then((module) => {
-    window.LoanCalculator = module.default;
-  });
-
-  import('./LoanCalculatorElement').then((module) => {
-    window.LoanCalculatorElement = module.default;
-  });
+  // Attach components to window for UMD builds
+  window.LoanCalculator = LoanCalculator;
+  window.LoanCalculatorElement = LoanCalculatorElement;
 }
