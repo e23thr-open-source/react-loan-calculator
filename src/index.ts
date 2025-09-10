@@ -3,7 +3,7 @@ import './LoanCalculatorElement';
 
 // Export the component for React users
 export { default as LoanCalculator } from './LoanCalculator';
-export type { LoanCalculatorProps, LoanCalculation } from './LoanCalculator';
+export type { LoanCalculatorProps, LoanCalculation } from './types';
 
 // Export the web component
 export { default as LoanCalculatorElement } from './LoanCalculatorElement';

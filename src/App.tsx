@@ -1,11 +1,26 @@
-import LoanCalculator from './LoanCalculator';
-import './LoanCalculatorElement'; // Register web component
+import { useEffect } from "react";
+import LoanCalculator from "./LoanCalculator";
+import "./LoanCalculatorElement"; // Register web component
+import { LoanCalculation } from "./types";
 
 function App() {
+  useEffect(() => {
+    const handleLoanCalculation = (event: Event) => {
+      const customEvent = event as CustomEvent<LoanCalculation>;
+      console.log("Received loan calculation event:", customEvent.detail);
+    };
+
+    window.addEventListener("loan-calculation", handleLoanCalculation);
+    return () => {
+      window.removeEventListener("loan-calculation", handleLoanCalculation);
+    };
+  }, []);
   return (
     <div className="min-h-screen bg-base-200 p-8">
       <div className="container mx-auto max-w-6xl">
-        <h1 className="text-4xl font-bold text-center mb-8">Loan Calculator Demo</h1>
+        <h1 className="text-4xl font-bold text-center mb-8">
+          Loan Calculator Demo
+        </h1>
 
         {/* React Component Demo */}
         <div className="mb-12">
@@ -16,18 +31,23 @@ function App() {
             initialLoanTerm={25}
             theme="light"
             className="mb-6"
+            eventName='loan-calculation'
           />
         </div>
 
         {/* Web Component Demo */}
         <div className="mb-12">
-          <h2 className="text-2xl font-semibold mb-4">Web Component Usage (HTML)</h2>
+          <h2 className="text-2xl font-semibold mb-4">
+            Web Component Usage (HTML)
+          </h2>
           <div className="mockup-code mb-4">
             <pre data-prefix="$">
               <code>{`<loan-calculator
   loan-amount="200000"
   interest-rate="5.5"
   loan-term="30"
+  event-name="loan-calculation"
+  class="loan-calculator-class"
   theme="dark">
 </loan-calculator>`}</code>
             </pre>
@@ -40,8 +60,10 @@ function App() {
                   loan-amount="200000"
                   interest-rate="5.5"
                   loan-term="30"
+                  event-name="loan-calculation"
+                  class="loan-calculator-class"
                   theme="dark">
-                </loan-calculator>`
+                </loan-calculator>`,
               }}
             />
           </div>
@@ -51,7 +73,10 @@ function App() {
         <div className="card bg-base-100 shadow-xl">
           <div className="card-body">
             <h2 className="card-title">CDN Usage Instructions</h2>
-            <p className="mb-4">To use this component via CDN, add the following script tag to your HTML:</p>
+            <p className="mb-4">
+              To use this component via CDN, add the following script tag to
+              your HTML:
+            </p>
 
             <div className="mockup-code">
               <pre data-prefix="1">

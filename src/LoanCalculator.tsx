@@ -1,94 +1,112 @@
-import { useState, useEffect } from 'react';
-
-export interface LoanCalculatorProps {
-  initialLoanAmount?: number;
-  initialInterestRate?: number;
-  initialLoanTerm?: number;
-  theme?: 'light' | 'dark';
-  className?: string;
-}
-
-export interface LoanCalculation {
-  monthlyPayment: number;
-  totalPayment: number;
-  totalInterest: number;
-  paymentBreakdown: Array<{
-    month: number;
-    payment: number;
-    principal: number;
-    interest: number;
-    balance: number;
-  }>;
-}
+import { useState, useEffect, useCallback } from "react";
+import { LoanCalculatorProps, LoanCalculation } from ".";
 
 const LoanCalculator: React.FC<LoanCalculatorProps> = ({
   initialLoanAmount = 250000,
   initialInterestRate = 5.0,
   initialLoanTerm = 30,
-  theme = 'light',
-  className = ''
+  theme = "light",
+  className = "",
+  eventName = "loan-calculation-event",
 }) => {
   const [loanAmount, setLoanAmount] = useState(initialLoanAmount);
   const [interestRate, setInterestRate] = useState(initialInterestRate);
   const [loanTerm, setLoanTerm] = useState(initialLoanTerm);
   const [calculation, setCalculation] = useState<LoanCalculation | null>(null);
+  const [eventNameState, setEventNameState] = useState(eventName);
 
-  useEffect(() => {
-    const calculateLoan = (): LoanCalculation => {
-      const principal = loanAmount;
-      const monthlyRate = interestRate / 100 / 12;
-      const numberOfPayments = loanTerm * 12;
+  const dispatchCalculationEvent = useCallback(
+    (data: LoanCalculation) => {
+      const event = new CustomEvent(eventNameState, { detail: data });
+      window.dispatchEvent(event);
+    },
+    [eventNameState]
+  );
 
-      // Calculate monthly payment using the formula
-      const monthlyPayment =
-        (principal * monthlyRate * Math.pow(1 + monthlyRate, numberOfPayments)) /
-        (Math.pow(1 + monthlyRate, numberOfPayments) - 1);
+  useEffect(
+    () => {
+      const calculateLoan = (): LoanCalculation => {
+        const principal = loanAmount;
+        const monthlyRate = interestRate / 100 / 12;
+        const numberOfPayments = loanTerm * 12;
 
-      const totalPayment = monthlyPayment * numberOfPayments;
-      const totalInterest = totalPayment - principal;
+        /**
+         * monthlyPayment = P × (r × (1 + r)^n) / ((1 + r)^n - 1)
+         *
+         * P (principal) = ยอดเงินกู้ (เงินต้น)
+         * r (monthlyRate) = อัตราดอกเบี้ยรายเดือน (interestRate / 100 / 12)
+         * n (numberOfPayments) = จำนวนงวดชำระทั้งหมด (จำนวนปี × 12)
+         */
 
-      // Calculate payment breakdown
-      const paymentBreakdown = [];
-      let balance = principal;
+        // Calculate monthly payment using the formula
+        const monthlyPayment =
+          (principal *
+            monthlyRate *
+            Math.pow(1 + monthlyRate, numberOfPayments)) /
+          (Math.pow(1 + monthlyRate, numberOfPayments) - 1);
 
-      for (let month = 1; month <= numberOfPayments; month++) {
-        const interestPayment = balance * monthlyRate;
-        const principalPayment = monthlyPayment - interestPayment;
-        balance -= principalPayment;
+        const totalPayment = monthlyPayment * numberOfPayments;
+        const totalInterest = totalPayment - principal;
 
-        paymentBreakdown.push({
-          month,
-          payment: monthlyPayment,
-          principal: principalPayment,
-          interest: interestPayment,
-          balance: Math.max(0, balance)
-        });
-      }
+        // Calculate payment breakdown
+        const paymentBreakdown = [];
+        let balance = principal;
 
-      return {
-        monthlyPayment,
-        totalPayment,
-        totalInterest,
-        paymentBreakdown
+        for (let month = 1; month <= numberOfPayments; month++) {
+          const interestPayment = balance * monthlyRate;
+          const principalPayment = monthlyPayment - interestPayment;
+          balance -= principalPayment;
+
+          paymentBreakdown.push({
+            month,
+            payment: monthlyPayment,
+            principal: principalPayment,
+            interest: interestPayment,
+            balance: Math.max(0, balance),
+          });
+        }
+
+        return {
+          monthlyPayment,
+          totalPayment,
+          totalInterest,
+          paymentBreakdown,
+        };
       };
-    };
 
-    if (loanAmount > 0 && interestRate >= 0 && loanTerm > 0) {
-      setCalculation(calculateLoan());
-    }
-  }, [loanAmount, interestRate, loanTerm]);
+      if (loanAmount > 0 && interestRate >= 0 && loanTerm > 0) {
+        const result = calculateLoan();
+        setCalculation(result);
+        dispatchCalculationEvent(result);
+      }
+    },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [loanAmount, interestRate, loanTerm]
+  );
 
   const formatCurrency = (amount: number): string => {
-    return new Intl.NumberFormat('en-US', {
-      style: 'currency',
-      currency: 'USD',
+    return new Intl.NumberFormat("th-TH", {
+      style: "currency",
+      currency: "THB",
     }).format(amount);
   };
 
-  const themeClass = theme === 'dark' ? 'dark' : '';
+  const themeClass = theme === "dark" ? "dark" : "";
+
+  useEffect(() => {
+    // console.log("eventName changed", eventName);
+    setEventNameState(eventName);
+  }, [eventName]);
+
+  useEffect(() => {
+    console.log("eventNameState changed", eventNameState);
+  }, [eventNameState]);
 
   return (
-    <div className={`loan-calculator ${themeClass} ${className}`} data-theme={theme}>
+    <div
+      className={`loan-calculator ${themeClass} ${className}`}
+      data-theme={theme}
+    >
       <div className="card w-full max-w-4xl mx-auto bg-base-100 shadow-xl">
         <div className="card-body">
           <h2 className="card-title text-2xl mb-6">Loan Calculator</h2>
@@ -143,21 +161,27 @@ const LoanCalculator: React.FC<LoanCalculatorProps> = ({
           {calculation && (
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <div className="stat bg-primary text-primary-content rounded-lg">
-                <div className="stat-title text-primary-content/70">Monthly Payment</div>
+                <div className="stat-title text-primary-content/70">
+                  Monthly Payment
+                </div>
                 <div className="stat-value text-lg">
                   {formatCurrency(calculation.monthlyPayment)}
                 </div>
               </div>
 
               <div className="stat bg-secondary text-secondary-content rounded-lg">
-                <div className="stat-title text-secondary-content/70">Total Payment</div>
+                <div className="stat-title text-secondary-content/70">
+                  Total Payment
+                </div>
                 <div className="stat-value text-lg">
                   {formatCurrency(calculation.totalPayment)}
                 </div>
               </div>
 
               <div className="stat bg-accent text-accent-content rounded-lg">
-                <div className="stat-title text-accent-content/70">Total Interest</div>
+                <div className="stat-title text-accent-content/70">
+                  Total Interest
+                </div>
                 <div className="stat-value text-lg">
                   {formatCurrency(calculation.totalInterest)}
                 </div>

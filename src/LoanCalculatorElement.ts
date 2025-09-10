@@ -1,6 +1,7 @@
 import { createElement } from 'react';
 import { createRoot, type Root } from 'react-dom/client';
-import LoanCalculator, { type LoanCalculatorProps } from './LoanCalculator';
+import LoanCalculator from './LoanCalculator';
+import { LoanCalculatorProps } from './types';
 
 class LoanCalculatorElement extends HTMLElement {
   private root: Root | null = null;
@@ -11,7 +12,8 @@ class LoanCalculatorElement extends HTMLElement {
       'interest-rate',
       'loan-term',
       'theme',
-      'class'
+      'class',
+      'event-name',
     ];
   }
 
@@ -30,7 +32,7 @@ class LoanCalculatorElement extends HTMLElement {
   }
 
   private getProps(): LoanCalculatorProps {
-    return {
+    const props: LoanCalculatorProps = {
       initialLoanAmount: this.getAttribute('loan-amount')
         ? Number(this.getAttribute('loan-amount'))
         : undefined,
@@ -41,8 +43,10 @@ class LoanCalculatorElement extends HTMLElement {
         ? Number(this.getAttribute('loan-term'))
         : undefined,
       theme: (this.getAttribute('theme') as 'light' | 'dark') || 'light',
-      className: this.getAttribute('class') || ''
+      className: this.getAttribute('class') || '',
+      eventName: this.getAttribute('event-name') || undefined,
     };
+    return props;
   }
 
   private render() {

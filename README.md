@@ -2,9 +2,9 @@
 
 A modern, responsive loan calculator built with React 19, TypeScript, and Tailwind CSS. Available as both a React component and a standalone web component for easy integration into any web application.
 
-![Version](https://img.shields.io/npm/v/loan-calculator)
-![License](https://img.shields.io/npm/l/loan-calculator)
-![Build Status](https://img.shields.io/github/workflow/status/yourusername/loan-calculator/CI)
+![Version](https://img.shields.io/npm/v/react-loan-calculator)
+![License](https://img.shields.io/npm/l/react-loan-calculator)
+![Build Status](https://img.shields.io/github/workflow/status/e23thr/react-loan-calculator/CI)
 
 ## Features
 
